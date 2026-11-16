@@ -12,6 +12,7 @@ test.beforeEach(async ({ page }) => {
 
 test('End-to-End Checkout', async ({ page }) => {
   const inventoryPage = new InventoryPage(page);
+  await inventoryPage.filterToLow();
   await inventoryPage.addToCart();
 
   await expect(page.getByText('Sauce Labs Onesie')).toBeVisible();
